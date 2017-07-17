@@ -23,7 +23,9 @@ end
 
 local function add_jpeg_noise(src, style, level, options)
    if style == "art" then
-      if level == 0 then
+      if level == -1 then
+    return add_jpeg_noise_(src, {torch.random(65, 100)}, options)
+      elseif level == 0 then
 	 return add_jpeg_noise_(src, {torch.random(85, 95)}, options)
       elseif level == 1 then
 	 return add_jpeg_noise_(src, {torch.random(65, 85)}, options)
